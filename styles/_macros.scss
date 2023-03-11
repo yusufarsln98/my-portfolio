@@ -1,0 +1,55 @@
+@use 'sass:color';
+
+$header-height: 40px;
+$footer-height: 40px;
+$break-point: 840px;
+
+$border-radius: 10px;
+
+$black-text: #212529;
+$black-bg: #131313;
+$white-text: #d6dade;
+$white-bg: #f8f9fa;
+$blue: #546a7b;
+$blue-linear-gradient: linear-gradient(
+	180deg,
+	#546a7b -0.15%,
+	rgba(217, 217, 217, 0) 99.85%
+);
+$snow: #e9ecef;
+$dark-blue: #1b2025;
+$cream: #c6c5b9;
+$cream-darker: #7a7966;
+$orange: #e1523d;
+$orange-darker: #e46653;
+$shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+@mixin panel {
+	border-radius: $border-radius;
+	box-shadow: $shadow;
+}
+
+@mixin bug_border {
+	border: 1px solid $orange;
+}
+
+$font-weight: (
+	regular: 400,
+	medium: 500,
+	bold: 700,
+);
+
+$hover-opacity: 0.6;
+$banner-height: 80px;
+
+$font-size: (
+	title: 72px,
+	big: 24px,
+	medium: 20px,
+	small: 16px,
+);
+
+$font-family: (
+	primary: 'Poppins',
+	secondary: 'Montserrat',
+);
