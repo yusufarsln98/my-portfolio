@@ -345,8 +345,9 @@
 .line {
 	width: 3px;
 	background: var(--blue-linear-gradient);
-	height: 0;
-	animation: heightAnimation 0.5s ease-in-out forwards;
+	height: calc(100% - $header-height);
+	// height: 0;
+	// animation: heightAnimation 0.5s ease-in-out forwards;
 }
 
 // height animation line
