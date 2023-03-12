@@ -23,6 +23,10 @@ import { Blog } from '@/models/blog.model';
 const pp = '/images/profile.svg';
 const globeLight = '/icons/globe_light.svg';
 const globeDark = '/icons/globe_dark.svg';
+const linkedinLight = '/icons/linkedin_light.svg';
+const linkedinDark = '/icons/linkedin_dark.svg';
+const githubLight = '/icons/github_light.svg';
+const githubDark = '/icons/github_dark.svg';
 
 function SkillItem(item: Skill) {
 	return (
@@ -154,6 +158,29 @@ export default function Home({ pinnedItems }: { pinnedItems: PinnedItem[] }) {
 						</div>
 						<div className={styles.blogContainer}>
 							{Blogs.map((item) => BlogItem(item))}
+						</div>
+					</div>
+				</div>
+				<div className={styles.footer}>
+					<div className={styles.footerContent}>
+						<p className={styles.footerLeft}>Yusuf Arslan Ⓒ</p>
+						<div className={styles.footerRight}>
+							<a href='' target='_blank' className={styles.footerLink}>
+								<Image
+									src={themeType === 'dark' ? githubLight : githubDark}
+									alt='github'
+									width={28}
+									height={28}
+								/>
+							</a>
+							<a href='' target='_blank' className={styles.footerLink}>
+								<Image
+									src={themeType === 'dark' ? linkedinLight : linkedinDark}
+									alt='linkedin'
+									width={28}
+									height={28}
+								/>
+							</a>
 						</div>
 					</div>
 				</div>

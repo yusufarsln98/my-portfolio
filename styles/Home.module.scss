@@ -293,6 +293,46 @@
 	align-items: center;
 }
 
+.footer {
+	margin-top: $header-height;
+	width: 100%;
+	background-color: var(--text-color-primary);
+	height: $footer-height;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.footerContent {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	width: $break-point;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.footerLeft {
+	display: flex;
+	color: var(--bg-color);
+	font-family: map-get($map: $font-family, $key: secondary), sans-serif;
+	font-size: map-get($map: $font-size, $key: small);
+}
+
+.footerRight {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 20px;
+
+	.footerLink {
+		display: flex;
+	}
+}
+
 @media (max-width: $break-point) {
 	.projectsContainer {
 		grid-template-columns: repeat(1, 1fr);
@@ -302,6 +342,10 @@
 
 @media (max-width: $break-point) {
 	.container {
+		width: 100%;
+		min-width: 100%;
+	}
+	.footerContent {
 		width: 100%;
 		min-width: 100%;
 	}
