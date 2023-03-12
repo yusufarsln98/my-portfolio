@@ -1,5 +1,5 @@
 import { useTranslation } from '@/context/Translation/Translation.context';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import styles from './Header.module.scss';
 import { useTheme } from '@/context/Theme/Theme.context';
@@ -13,13 +13,39 @@ const Header = () => {
 	const { themeType, setThemeType } = useTheme();
 	const [currentLink, setCurrentLink] = React.useState<string>('about');
 
+	const themeClicked = () => {
+		setThemeType(themeType === 'light' ? 'dark' : 'light');
+		// save the new theme to local storage
+		localStorage.setItem('theme', themeType === 'light' ? 'dark' : 'light');
+	};
+
+	const languageClicked = () => {
+		setLanguage(language === 'en' ? 'tr' : 'en');
+		// save the new language to local storage
+		localStorage.setItem('language', language === 'en' ? 'tr' : 'en');
+	};
+
+	useEffect(() => {
+		// check if theme exists in local storage and set it
+		const theme = localStorage.getItem('theme');
+		if (theme) {
+			setThemeType(theme as 'light' | 'dark');
+		}
+
+		// check if language exists in local storage and set it
+		const lang = localStorage.getItem('language');
+		if (lang) {
+			setLanguage(lang as 'en' | 'tr');
+		}
+	}, []);
+
 	return (
 		<div className={styles.header}>
 			<button>
 				<Image
 					src={themeType === 'light' ? dark : light}
 					alt='mode'
-					onClick={() => setThemeType(themeType === 'light' ? 'dark' : 'light')}
+					onClick={themeClicked}
 					style={{ transform: 'rotate(180deg)' }}
 					width={24}
 					height={24}
@@ -55,9 +81,9 @@ const Header = () => {
 					{t.blog}
 				</AnchorLink>
 				{language === 'tr' ? (
-					<button onClick={() => setLanguage('en')}>🇺🇸</button>
+					<button onClick={languageClicked}>🇺🇸</button>
 				) : (
-					<button onClick={() => setLanguage('tr')}>🇹🇷</button>
+					<button onClick={languageClicked}>🇹🇷</button>
 				)}
 			</div>
 		</div>

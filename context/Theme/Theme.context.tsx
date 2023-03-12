@@ -9,6 +9,7 @@ interface ThemeContextProps {
 }
 
 export const ThemeContext = React.createContext<ThemeContextProps>({
+	// check if theme exists in local storage and set it
 	themeType: 'light',
 	theme: THEMES['light'],
 } as ThemeContextProps);

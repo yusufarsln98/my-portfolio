@@ -108,12 +108,20 @@
 	width: 100%;
 }
 
+@media (max-width: $break-point) {
+	.skillsContainer {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+	}
+}
+
 .skill {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	width: 100%;
 	.skillTitle {
+		font-family: map-get($map: $font-family, $key: secondary), sans-serif;
 		font-size: map-get($map: $font-size, $key: small);
 		font-weight: map-get($map: $font-weight, $key: light);
 		color: var(--text-color-primary);
