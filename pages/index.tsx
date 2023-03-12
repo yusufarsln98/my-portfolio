@@ -5,6 +5,8 @@ import { useTheme } from '@/context/Theme/Theme.context';
 import { useTranslation } from '@/context/Translation/Translation.context';
 import Head from 'next/head';
 import Image from 'next/image';
+import { SKILLS } from '@/public/constants/Skills/Skills.config';
+import { Skill } from '@/public/constants/Skills/Skills.model';
 const pp = '/images/profile.svg';
 
 export default function Home() {
@@ -44,8 +46,13 @@ export default function Home() {
 						<p>{t.hey}</p>
 						<p>{t.aboutMe}</p>
 					</div>
-					<div id='skills' className={styles.skills}>
-						skills{' '}
+					<div id='skills' className={styles.sectionContainer}>
+						<div className={styles.sectionHeader}>
+							<p className={styles.sectionTitle}>{t.skills}</p>
+						</div>
+						<div className={styles.skillsContainer}>
+							{SKILLS.map((skill) => skillItem(skill))}
+						</div>
 					</div>
 					<div id='projects' className={styles.projects}>
 						projects{' '}
@@ -56,5 +63,18 @@ export default function Home() {
 				</div>
 			</div>
 		</>
+	);
+}
+function skillItem(skill: Skill): JSX.Element {
+	return (
+		<div className={styles.skill} key={skill.id}>
+			<p className={styles.skillTitle}>{skill.title}</p>
+			<div
+				className={styles.barChart}
+				style={{ ...(skill.cssVariable as React.CSSProperties) }}
+			>
+				<div className={styles.barChartBar}></div>
+			</div>
+		</div>
 	);
 }
