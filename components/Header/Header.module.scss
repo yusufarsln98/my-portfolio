@@ -19,12 +19,27 @@
 		align-items: center;
 	}
 
+	@media (max-width: $phone-break-point) {
+		.links {
+			display: none;
+		}
+	}
+
+	.headerRight {
+		display: flex;
+		align-items: center;
+	}
+
 	a {
 		text-decoration: none;
 		color: var(--text-color-secondary);
 		margin-right: 20px;
 		display: inline-block;
 		position: relative;
+
+		@media (max-width: $break-point) {
+			margin-right: 10px;
+		}
 
 		&:after {
 			content: '';

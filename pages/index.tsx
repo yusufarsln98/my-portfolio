@@ -144,8 +144,7 @@ export default function Home({ pinnedItems }: { pinnedItems: PinnedItem[] }) {
 						className={styles.sectionContainer}
 						ref={(el) => {
 							if (!el) return;
-
-							console.log(el.getBoundingClientRect());
+							// console.log(el.getBoundingClientRect());
 						}}
 					>
 						<div className={styles.sectionHeader}>
