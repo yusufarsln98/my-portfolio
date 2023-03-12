@@ -19,6 +19,7 @@ import { Skill } from '../models/skill.model';
 import { PinnedItem } from '../models/pinnedItem.model';
 import { Blogs } from '@/constants/Blogs/Blogs.config';
 import { Blog } from '@/models/blog.model';
+import { LINKS } from '@/constants/Links/Links.config';
 
 const pp = '/images/profile.svg';
 const globeLight = '/icons/globe_light.svg';
@@ -163,9 +164,13 @@ export default function Home({ pinnedItems }: { pinnedItems: PinnedItem[] }) {
 				</div>
 				<div className={styles.footer}>
 					<div className={styles.footerContent}>
-						<p className={styles.footerLeft}>Yusuf Arslan Ⓒ</p>
+						<p className={styles.footerLeft}>{t.footer}</p>
 						<div className={styles.footerRight}>
-							<a href='' target='_blank' className={styles.footerLink}>
+							<a
+								href={LINKS.my_github}
+								target='_blank'
+								className={styles.footerLink}
+							>
 								<Image
 									src={themeType === 'dark' ? githubLight : githubDark}
 									alt='github'
@@ -173,7 +178,11 @@ export default function Home({ pinnedItems }: { pinnedItems: PinnedItem[] }) {
 									height={28}
 								/>
 							</a>
-							<a href='' target='_blank' className={styles.footerLink}>
+							<a
+								href={LINKS.my_linkedin}
+								target='_blank'
+								className={styles.footerLink}
+							>
 								<Image
 									src={themeType === 'dark' ? linkedinLight : linkedinDark}
 									alt='linkedin'

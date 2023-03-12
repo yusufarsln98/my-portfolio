@@ -4,6 +4,7 @@ export interface Translation {
 	title: string;
 	first_name: string;
 	last_name: string;
+	footer: string;
 	about: string;
 	skills: string;
 	projects: string;
