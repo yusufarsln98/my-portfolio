@@ -9,11 +9,19 @@ import Head from 'next/head';
 import React from 'react';
 
 export default function App({ Component, pageProps }: AppProps) {
+	// if browser not render page, do not render anything
+	const [browserRendered, setBrowserRendered] = React.useState(false);
+	React.useEffect(() => {
+		if (typeof window !== 'undefined') {
+			setBrowserRendered(true);
+		}
+	}, []);
+
 	return (
 		<>
 			<ThemeProvider>
 				<TranslationProvider>
-					<Component {...pageProps} />
+					{browserRendered && <Component {...pageProps} />}
 				</TranslationProvider>
 			</ThemeProvider>
 		</>
