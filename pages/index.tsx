@@ -95,6 +95,7 @@ function BlogItem(item: Blog) {
 export default function Home({ pinnedItems }: { pinnedItems: PinnedItem[] }) {
 	const { theme, themeType } = useTheme();
 	const { t } = useTranslation();
+	const [lineHeight, setLineHeight] = useState(0);
 
 	return (
 		<>
@@ -106,7 +107,16 @@ export default function Home({ pinnedItems }: { pinnedItems: PinnedItem[] }) {
 				className={styles.home}
 			>
 				<Header />
-				<div className={styles.container}>
+				<div
+					className={styles.container}
+					ref={(el) => {
+						if (!el) return;
+						setLineHeight(el.getBoundingClientRect().height);
+					}}
+				>
+					<div className={styles.lineContainer} style={{ height: lineHeight }}>
+						<div className={styles.line}></div>
+					</div>
 					<div id='about' className={styles.banner}>
 						<div className={styles.bannerBg}></div>
 						<div className={styles.bannerContent}>

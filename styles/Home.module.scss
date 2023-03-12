@@ -333,6 +333,39 @@
 	}
 }
 
+.lineContainer {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	top: $header-height;
+	padding-top: $header-height;
+	left: calc(50% - $break-point / 2 - 20px);
+}
+
+.line {
+	width: 3px;
+	background: var(--blue-linear-gradient);
+	height: 0;
+	animation: heightAnimation 0.5s ease-in-out forwards;
+}
+
+// height animation line
+@keyframes heightAnimation {
+	0% {
+		height: 0;
+	}
+	100% {
+		height: calc(100% - $header-height);
+	}
+}
+
+.circle {
+	width: 13px;
+	height: 13px;
+	border-radius: 50%;
+	background-color: var(--blue);
+}
+
 @media (max-width: $break-point) {
 	.projectsContainer {
 		grid-template-columns: repeat(1, 1fr);
