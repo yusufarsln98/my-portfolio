@@ -25,20 +25,6 @@ const Header = () => {
 		localStorage.setItem('language', language === 'en' ? 'tr' : 'en');
 	};
 
-	useEffect(() => {
-		// check if theme exists in local storage and set it
-		const theme = localStorage.getItem('theme');
-		if (theme) {
-			setThemeType(theme as 'light' | 'dark');
-		}
-
-		// check if language exists in local storage and set it
-		const lang = localStorage.getItem('language');
-		if (lang) {
-			setLanguage(lang as 'en' | 'tr');
-		}
-	}, []);
-
 	return (
 		<div className={styles.header}>
 			<button>

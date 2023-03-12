@@ -18,6 +18,15 @@ export const TranslationProvider: React.FC<PropsWithChildren> = ({
 }) => {
 	const [language, setLanguage] = React.useState<Languages>('en');
 
+	React.useEffect(() => {
+		if (typeof window !== 'undefined') {
+			const language = localStorage.getItem('language');
+			if (language) {
+				setLanguage(language as 'en' | 'tr');
+			}
+		}
+	}, []);
+
 	return (
 		<TranslationContext.Provider
 			value={{

@@ -1,4 +1,9 @@
-import React, { Dispatch, SetStateAction, PropsWithChildren } from 'react';
+import React, {
+	Dispatch,
+	SetStateAction,
+	PropsWithChildren,
+	useEffect,
+} from 'react';
 import { THEMES } from './Theme.config';
 import { ThemeType, Theme } from './Theme.model';
 
@@ -16,6 +21,14 @@ export const ThemeContext = React.createContext<ThemeContextProps>({
 
 export const ThemeProvider: React.FC<PropsWithChildren> = ({ children }) => {
 	const [themeType, setThemeType] = React.useState<ThemeType>('light');
+	useEffect(() => {
+		if (typeof window !== 'undefined') {
+			const theme = localStorage.getItem('theme');
+			if (theme) {
+				setThemeType(theme as 'light' | 'dark');
+			}
+		}
+	}, []);
 
 	return (
 		<ThemeContext.Provider

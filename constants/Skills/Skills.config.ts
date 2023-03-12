@@ -1,4 +1,4 @@
-import { Skill } from './Skills.model';
+import { Skill } from '../../models/skill.model';
 
 // array of objects
 export const SKILLS: Skill[] = [
